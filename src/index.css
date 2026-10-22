@@ -1,0 +1,516 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #0f172a;
+  background: #eef6f7;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #dfeff1 0%, #f7f7f8 100%);
+  color: #0f172a;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+.topbar,
+.hero-card,
+.role-switcher,
+.panel,
+.summary-bar,
+.driver-card,
+.ride-card,
+.offer,
+.mini-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+}
+
+.topbar h1 {
+  margin: 4px 0 0;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  color: #081c2a;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #4b5563;
+}
+
+.status-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status-pill,
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.status-live {
+  background: rgba(33, 183, 122, 0.12);
+  color: #0d7a4b;
+}
+
+.status-pill.pending {
+  background: rgba(250, 204, 21, 0.15);
+  color: #8a6c00;
+}
+
+.status-pill.approved {
+  background: rgba(34, 197, 94, 0.12);
+  color: #05702d;
+}
+
+.status-pill.rejected {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
+.hero-card {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr;
+  gap: 18px;
+  padding: 22px;
+  margin-bottom: 18px;
+  background: linear-gradient(135deg, rgba(10, 31, 42, 0.96), rgba(10, 31, 42, 0.88));
+  color: #effaf9;
+}
+
+.hero-copy h2 {
+  margin: 8px 0 10px;
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  line-height: 1.15;
+}
+
+.badge {
+  margin: 0;
+  display: inline-block;
+  background: rgba(33, 183, 122, 0.18);
+  color: #9ae6b4;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.muted-text {
+  color: rgba(15, 23, 42, 0.7);
+  margin: 0;
+}
+
+.hero-card .muted-text {
+  color: rgba(239, 250, 249, 0.8);
+}
+
+.hero-actions {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primary-button,
+.secondary-button,
+.ghost-button,
+.role-button {
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-weight: 700;
+  transition: transform 0.18s ease;
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #21b77a, #1aa26f);
+  color: white;
+}
+
+.secondary-button {
+  background: #eafaf3;
+  color: #0f172a;
+}
+
+.ghost-button {
+  background: rgba(15, 23, 42, 0.04);
+  color: #0f172a;
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.ghost-button:hover,
+.role-button:hover {
+  transform: translateY(-1px);
+}
+
+.primary-button.full {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.primary-button.small,
+.secondary-button.small,
+.ghost-button.small {
+  padding: 9px 14px;
+  font-size: 0.82rem;
+}
+
+.hero-side {
+  display: grid;
+  gap: 12px;
+}
+
+.mini-card {
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.mini-card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.4rem;
+}
+
+.mini-card.green {
+  background: rgba(33, 183, 122, 0.2);
+}
+
+.role-switcher {
+  display: inline-flex;
+  gap: 12px;
+  padding: 8px;
+  margin-bottom: 18px;
+}
+
+.role-button {
+  background: transparent;
+  color: #334155;
+  padding: 10px 16px;
+}
+
+.role-button.active {
+  background: #081c2a;
+  color: white;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr;
+  gap: 18px;
+}
+
+.content-grid.single-column {
+  grid-template-columns: 1fr;
+}
+
+.panel {
+  padding: 18px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.panel-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.chip {
+  background: rgba(33, 183, 122, 0.1);
+  color: #0c8f5d;
+}
+
+.travel-form {
+  display: grid;
+  gap: 12px;
+}
+
+.travel-form.compact {
+  margin-top: 18px;
+}
+
+.travel-form label {
+  display: grid;
+  gap: 8px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.travel-form input,
+.search-box {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.map-wrap {
+  margin-top: 22px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.leaflet-map {
+  height: 260px;
+  width: 100%;
+}
+
+.ride-list {
+  display: grid;
+  gap: 14px;
+}
+
+.ride-card {
+  padding: 16px;
+}
+
+.route-name {
+  margin: 0;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.route-name.small {
+  margin-top: 4px;
+  font-size: 0.86rem;
+  color: #475569;
+}
+
+.ride-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fare-badge {
+  background: rgba(37, 99, 235, 0.08);
+  color: #1d4ed8;
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.offer-stack {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.offer {
+  padding: 12px;
+  background: rgba(148, 163, 184, 0.04);
+}
+
+.offer.accepted {
+  border: 1px solid rgba(33, 183, 122, 0.45);
+  background: rgba(33, 183, 122, 0.06);
+}
+
+.offer-header,
+.offer-meta,
+.trip-status-line,
+.driver-summary,
+.trip-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.offer-header {
+  margin-bottom: 6px;
+}
+
+.offer-meta {
+  font-size: 0.8rem;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.offer p {
+  margin: 0 0 10px;
+  color: #334155;
+}
+
+.empty-state,
+.empty-offer {
+  background: rgba(148, 163, 184, 0.05);
+  border: 1px dashed rgba(148, 163, 184, 0.38);
+  border-radius: 14px;
+  padding: 18px;
+  color: #475569;
+  text-align: center;
+}
+
+.trip-status-line {
+  margin-top: 16px;
+  color: #1f2937;
+  font-size: 0.82rem;
+}
+
+.trip-actions {
+  margin-top: 12px;
+}
+
+.driver-summary {
+  display: grid;
+  gap: 12px;
+}
+
+.driver-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.driver-card p {
+  margin: 6px 0 0;
+  color: #475569;
+}
+
+.rating-box {
+  background: rgba(250, 204, 21, 0.15);
+  color: #946b00;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.admin-card {
+  border-left: 4px solid rgba(33, 183, 122, 0.7);
+}
+
+.summary-bar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+  padding: 16px 18px;
+}
+
+.summary-bar div {
+  display: grid;
+  gap: 4px;
+}
+
+.summary-bar span,
+.summary-bar small {
+  color: #475569;
+}
+
+@media (max-width: 920px) {
+  .hero-card,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topbar,
+  .panel-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 560px) {
+  .app-shell {
+    padding: 16px 12px 30px;
+  }
+
+  .topbar,
+  .panel,
+  .hero-card,
+  .summary-bar,
+  .ride-card {
+    border-radius: 16px;
+  }
+
+  .summary-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions,
+  .trip-actions,
+  .status-group {
+    width: 100%;
+  }
+
+  .hero-actions button,
+  .trip-actions button,
+  .status-group button {
+    width: 100%;
+  }
+}
